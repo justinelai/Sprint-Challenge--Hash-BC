@@ -24,7 +24,7 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = random.getrandbits(512)
+    proof = random.getrandbits(256)
 
     # encode then hash last proof
     # encode into string
@@ -34,7 +34,7 @@ def proof_of_work(last_proof):
 
     # pass last hash and new proof
     while valid_proof(last_hash, proof) is False:
-        proof = random.getrandbits(512)
+        proof = random.getrandbits(256)
 
     # return valid new proof
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
