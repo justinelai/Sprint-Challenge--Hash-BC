@@ -27,7 +27,7 @@ def proof_of_work(last_proof):
 
     print("Searching for next proof")
     proof = random.getrandbits(256)
-    #proof = random.uniform(-3,-2)
+    # proof = random.uniform(-3,-2)
     # proof = os.urandom(256)
     # proof = SystemRandom()
 
@@ -41,7 +41,7 @@ def proof_of_work(last_proof):
     while valid_proof(last_hash, proof) is False:
         proof = random.getrandbits(256)
         # proof = random.uniform(-3,-2)
-        #proof = os.urandom(256)
+        # proof = os.urandom(256)
         # proof = SystemRandom()
 
     # return valid new proof
