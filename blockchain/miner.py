@@ -9,6 +9,8 @@ from uuid import uuid4
 from timeit import default_timer as timer
 
 import random
+from random import SystemRandom
+import os
 
 
 def proof_of_work(last_proof):
@@ -25,6 +27,9 @@ def proof_of_work(last_proof):
 
     print("Searching for next proof")
     proof = random.getrandbits(256)
+    #proof = random.uniform(-3,-2)
+    # proof = os.urandom(256)
+    # proof = SystemRandom()
 
     # encode then hash last proof
     # encode into string
@@ -35,6 +40,9 @@ def proof_of_work(last_proof):
     # pass last hash and new proof
     while valid_proof(last_hash, proof) is False:
         proof = random.getrandbits(256)
+        # proof = random.uniform(-3,-2)
+        #proof = os.urandom(256)
+        # proof = SystemRandom()
 
     # return valid new proof
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
